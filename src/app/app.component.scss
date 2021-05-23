@@ -1,0 +1,66 @@
+@import 'src/theme.scss';
+
+@include mat-core();
+
+.app-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.toolbar{
+    font-size: 14px;
+    height: 75px;
+    width: 100%;
+    color: mat-color($primary);
+    border-color: mat-color($accent);
+    border-style: none none solid none;
+    border-width: 1px;
+}
+
+.toolbar-item{
+    width: calc(100%/3);
+}
+
+.logo-icon{
+    width: 135px;
+    height: 45px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.title{
+    font-size: 36px;
+    text-align: center;
+}
+
+.slogan{
+    text-align: right;
+}
+
+.sidnav-container{
+    width: 100%;
+    height: calc(100% - 75px);
+}
+
+.sidenav{
+    width: 75px;
+    background-color: mat-color($primary);
+    color: mat-color($accent);
+}
+
+.side-button{
+    background-color: mat-color($primary);
+    margin: 1,5px;
+    width: 72px;
+    height: 72px;
+}
+
+.icon{
+    color: mat-color($secondary);
+    scale: 3;
+}
+
+.current{
+    color: mat-color($accent);
+}
