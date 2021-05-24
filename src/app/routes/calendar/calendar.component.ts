@@ -14,12 +14,4 @@ export class CalendarComponent {
     global.currentItem = 1
   }
 
-  openDialog() {
-    const dialogConfig = new MatDialogConfig();
-
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    this.dialog.open(ActivityComponent, dialogConfig);
-  }
-
 }

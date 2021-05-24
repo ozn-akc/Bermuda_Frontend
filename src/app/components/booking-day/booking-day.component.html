@@ -1,3 +1,19 @@
-<div class="bookingday-container">
-{{bookingDay.id}}
+<div class="container">
+    <div class="date">
+        {{bookingDay.date | date:'ccc'}}  {{bookingDay.date | date:'dd.MM.YYYY'}}
+    </div>
+    <div>
+        <ng-container *ngFor="let activity of activities">
+            <div class="activity">
+                <div class="detail">{{activity.project.name}}</div>
+                <div class="detail" [title]="activity.description">{{activity.description}}</div>
+                <div class="detail">{{activity.duration}}</div>
+            </div>
+        </ng-container>
+        <button mat-button class="activity-button" (click)="openActivity()">
+            <mat-icon>
+                add
+            </mat-icon>
+        </button>
+    </div>
 </div>
