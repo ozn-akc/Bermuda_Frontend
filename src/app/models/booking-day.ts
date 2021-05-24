@@ -3,12 +3,12 @@ import { Employee } from "./employee";
 
 export class BookingDay {
 
-    public id: number;
-    public date: Date;
-    public start: Time;
-    public end: Time;
-    public breakHours: number;
-    public employee: Employee;
+    public id: number = 0;
+    public date: Date = new Date;
+    public start: Date = new Date;
+    public end: Date = new Date;
+    public breakHours: number = 0;
+    public employee: Employee = new Employee;
 
     constructor(){
         

@@ -3,10 +3,10 @@ import { Project } from "./project";
 
 export class Activity {
 
-    public id: number;
-    public description: string;
-    public duration: number;
+    public id: number = 0;
+    public description: string = "";
+    public duration: number = 0;
     public status: number = 0;
-    public project: Project;
-    public bookingDay: BookingDay;
+    public project: Project = new Project;
+    public bookingDay: BookingDay = new BookingDay;
 }

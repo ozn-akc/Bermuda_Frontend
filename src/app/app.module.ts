@@ -5,14 +5,18 @@ import { HomeComponent } from './routes/home/home.component';
 import { CalendarComponent } from './routes/calendar/calendar.component';
 import { StatisticsComponent } from './routes/statistics/statistics.component';
 import { SettingsComponent } from './routes/settings/settings.component';
+import { ActivityComponent } from './components/activity/activity.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { Global } from 'src/global';
+import { EmpToProjService } from './services/emp-to-proj.service';
+import { BookingDayComponent } from './components/booking-day/booking-day.component';
 
 @NgModule({
   declarations: [
@@ -20,17 +24,25 @@ import { Global } from 'src/global';
     HomeComponent,
     CalendarComponent,
     StatisticsComponent,
-    SettingsComponent
+    SettingsComponent,
+    ActivityComponent,
+    BookingDayComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
-    Global
+    Global,
+    EmpToProjService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ActivityComponent
+  ]
 })
 export class AppModule { }

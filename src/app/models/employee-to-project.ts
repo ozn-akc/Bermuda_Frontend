@@ -3,9 +3,9 @@ import { Project } from "./project";
 
 export class EmployeeToProject {
 
-    public id: number;
-    public employee: Employee;
-    public project: Project;
+    public id: number = 0;
+    public employee: Employee = new Employee;
+    public project: Project = new Project;
 
     constructor(){
         

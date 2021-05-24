@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="activity">
+        <div class="dialog-title">{{title}}</div>
+        <div class="dialog-content">
+            <select matNativeControl  class="activity-project-select">
+                <option  class="project-option" *ngFor="let emp_to_proj of emp_to_projects" [value]="emp_to_proj">
+                    {{emp_to_proj.project.name}}
+                </option>
+            </select>
+            <div class="activity-input-container">
+                <div>
+                    <textarea class="input desc" placeholder="Aktivität" type="text" [(ngModel)]="activity.description"></textarea>
+                </div>
+                <div>
+                    <input mat-input class="input dura" title="Dauer" type="int" [(ngModel)]="activity.duration">
+                </div>
+            </div>
+        </div>
+        <div class="dialog-action">
+            <button class="activity-button" (click)="save()">
+                Speichern
+            </button>
+            <button class="activity-button" (click)="close()">
+                Schließen
+            </button>
+        </div>
+    </div>
+</div>

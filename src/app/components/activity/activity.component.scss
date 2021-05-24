@@ -1,0 +1,72 @@
+@import 'src/theme.scss';
+
+@include mat-core();
+
+.container{
+    width: 350px;
+    height: 450px;
+    background-color: mat-color($secondary);
+    font-size: 16px;
+}
+
+.activity{
+    margin: 5%;
+}
+
+.dialog-title{
+    font-size: 28px;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding-top:30px;
+    color: mat-color($primary);
+}
+
+.dialog-content{
+    color: mat-color($primary);
+    width: 100%;
+}
+
+.activity-project-select{
+    width: 100%;
+    height: 50px;
+    align-items: center;
+}
+
+.project-option{
+    border-color: mat-color($primary);
+    border-width: 2px;
+}
+
+.activity-input-container{
+    margin-left: 10%;
+    width: 80%;
+}
+
+.input{
+    margin-top: 25px;
+    width: 100%;
+    height: 100px;
+    text-align: flex;
+    border-color: mat-color($primary);
+    border-width: 2px;
+    resize: none;
+}
+
+.input.dura{
+    width: 40%;
+    margin-left: 30%;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.activity-button{
+    background-color: mat-color($primary);
+    color: mat-color($secondary);
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 25px;
+    height: 50px;
+}

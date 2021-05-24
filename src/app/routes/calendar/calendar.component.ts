@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivityComponent } from 'src/app/components/activity/activity.component';
 import { Global } from 'src/global';
 
 @Component({
@@ -6,13 +8,18 @@ import { Global } from 'src/global';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent {
 
-  constructor(public global: Global) { 
+  constructor(public global: Global,private dialog: MatDialog) { 
     global.currentItem = 1
   }
 
-  ngOnInit(): void {
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    this.dialog.open(ActivityComponent, dialogConfig);
   }
 
 }
