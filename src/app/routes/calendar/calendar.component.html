@@ -1,1 +1,22 @@
-<app-booking-day></app-booking-day>
+<div class="container">
+    <div class="calendar">
+        <div class="timeframe">
+            <button mat-fab class="button left" >
+                <mat-icon class="icon">
+                    arrow_back
+                </mat-icon>
+            </button>
+            <div class="time">{{from | date:'dd.MM.YYYY'}}  -  {{to | date:'dd.MM.YYYY'}}</div>
+            <button mat-fab class="button right" >
+                <mat-icon class="icon">
+                    arrow_forward
+                </mat-icon>
+            </button>
+        </div>
+        <div class="bookingDays">
+            <ng-container *ngFor="let bookingDay of bookingDays">
+                <app-booking-day [bookingDay]="bookingDay" class="bookingDay"></app-booking-day>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Activity } from 'src/app/models/activity';
 import { BookingDay } from 'src/app/models/booking-day';
@@ -12,32 +12,25 @@ import { ActivityComponent } from '../activity/activity.component';
   templateUrl: './booking-day.component.html',
   styleUrls: ['./booking-day.component.scss']
 })
-export class BookingDayComponent {
-  bookingDay: BookingDay = new BookingDay;
+export class BookingDayComponent implements AfterContentInit{
+  @Input() bookingDay: BookingDay = new BookingDay;
   activities: Activity[] = [];
 
   constructor(
     public global: Global,
-    private bookingDayService: BookingDayService,
     private activityService: ActivityService,
     private dialog: MatDialog
-    ) { 
-      bookingDayService.getBookingDayById(1)
-      .subscribe(
-        resp =>{
-          this.bookingDay = resp
-          this.activityService.getActivitiesByBookingDayId(resp.id)
-          .subscribe(
-            resp =>{
-              this.activities = resp
-              console.log(resp)
-            },
-            err => console.log(err),
-          );
-        },
-        err => console.log(err),
-      );
-    }
+    ) { }
+
+  ngAfterContentInit(): void {
+    this.activityService.getActivitiesByBookingDayId(this.bookingDay.id)
+    .subscribe(
+      resp =>{
+        this.activities = resp
+      },
+      err => console.log(err),
+    );
+  }
 
     openActivity() {
       const dialogConfig = new MatDialogConfig();
