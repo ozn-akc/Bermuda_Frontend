@@ -2,9 +2,11 @@
     <div class="activity">
         <div class="dialog-title">{{title}}</div>
         <div class="dialog-content">
-            <select matNativeControl  class="activity-project-select">
-                <option  class="project-option" *ngFor="let emp_to_proj of emp_to_projects" [value]="emp_to_proj">
-                    {{emp_to_proj.project.name}}
+            <select matNativeControl  class="activity-project-select" [(ngModel)]="activity.project">
+                <option  class="project-option" *ngFor="let project of projects" [ngValue]="project">
+                    <div>
+                        {{project.name}}
+                    </div>
                 </option>
             </select>
             <div class="activity-input-container">
@@ -12,7 +14,7 @@
                     <textarea class="input desc" placeholder="Aktivität" type="text" [(ngModel)]="activity.description"></textarea>
                 </div>
                 <div>
-                    <input mat-input class="input dura" title="Dauer" type="int" [(ngModel)]="activity.duration">
+                    <input mat-input class="input dura" title="Dauer" type="number" step=".25" [(ngModel)]="activity.duration">
                 </div>
             </div>
         </div>

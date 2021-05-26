@@ -40,6 +40,10 @@ export class BookingDayComponent implements AfterContentInit{
   
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
+      dialogConfig.data = {
+        bookinday: this.bookingDay,
+        activity: null
+      };
       this.dialog.open(ActivityComponent, dialogConfig);
     }
 
@@ -49,6 +53,7 @@ export class BookingDayComponent implements AfterContentInit{
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
       dialogConfig.data = {
+        bookinday: null,
         activity: data
       };
       this.dialog.open(ActivityComponent, dialogConfig);

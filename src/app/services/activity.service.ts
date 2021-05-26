@@ -22,4 +22,8 @@ export class ActivityService {
     return this.http
     .get<Activity>(this.baseUrl + id);
   }
+
+  saveBookingDay(activity: Activity){
+    return this.http.post(this.baseUrl + "save", activity);
+  }
 }
