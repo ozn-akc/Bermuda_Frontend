@@ -3,21 +3,29 @@
         {{bookingDay.date | date:'ccc'}}  {{bookingDay.date | date:'dd.MM.YYYY'}}
     </div>
     <div class="date">
-        <input type="time" [value]="bookingDay.start">
-        <input type="time" [value]="bookingDay.end">
+        <input type="time" [(ngModel)]="bookingDay.start">
+        <input type="time" [(ngModel)]="bookingDay.end">
     </div>
-    <div>
+    <div class="date">
+        <input type="number" step=".25" style="text-align: center;" [(ngModel)]="bookingDay.breakHours">
+    </div>
+    <div class="activities">
         <ng-container *ngFor="let activity of activities">
-            <div class="activity">
+            <button class="activity" (click)="openActivityWithActivity(activity)">
                 <div class="detail">{{activity.project.name}}</div>
                 <div class="detail" [title]="activity.description">{{activity.description}}</div>
                 <div class="detail">{{activity.duration}}</div>
-            </div>
+            </button>
         </ng-container>
         <button mat-button class="activity-button" (click)="openActivity()">
             <mat-icon>
                 add
             </mat-icon>
+        </button>
+    </div>
+    <div>
+        <button class="bestätigen-button" (click)="saveBookingDay()">
+            Bestätigen
         </button>
     </div>
 </div>

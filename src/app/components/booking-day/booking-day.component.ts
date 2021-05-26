@@ -1,6 +1,7 @@
 import { stringify } from '@angular/compiler/src/util';
 import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Data } from '@angular/router';
 import { Activity } from 'src/app/models/activity';
 import { BookingDay } from 'src/app/models/booking-day';
 import { ActivityService } from 'src/app/services/activity.service';
@@ -20,6 +21,7 @@ export class BookingDayComponent implements AfterContentInit{
   constructor(
     public global: Global,
     private activityService: ActivityService,
+    private bookingDayService: BookingDayService,
     private dialog: MatDialog
     ) { }
 
@@ -39,6 +41,27 @@ export class BookingDayComponent implements AfterContentInit{
       dialogConfig.disableClose = true;
       dialogConfig.autoFocus = true;
       this.dialog.open(ActivityComponent, dialogConfig);
+    }
+
+    openActivityWithActivity(data: Data) {
+      const dialogConfig = new MatDialogConfig();
+  
+      dialogConfig.disableClose = true;
+      dialogConfig.autoFocus = true;
+      dialogConfig.data = {
+        activity: data
+      };
+      this.dialog.open(ActivityComponent, dialogConfig);
+    }
+
+    saveBookingDay(){
+      this.bookingDayService.saveBookingDay(this.bookingDay)
+      .subscribe(
+        resp =>{
+          this.bookingDay = resp as BookingDay
+        },
+        err => console.log(err),
+      );
     }
 
 }

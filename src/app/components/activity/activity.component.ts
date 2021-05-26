@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Activity } from 'src/app/models/activity';
 import { EmployeeToProject } from 'src/app/models/employee-to-project';
 import { Project } from 'src/app/models/project';
@@ -20,7 +20,8 @@ export class ActivityComponent {
   constructor(
     public global: Global,
     private empToProjService: EmpToProjService,
-    private dialogRef: MatDialogRef<ActivityComponent>){
+    private dialogRef: MatDialogRef<ActivityComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any){
     empToProjService
     .getEmployeeToProjectsByEmployeeId(1)
     .subscribe(
@@ -29,6 +30,9 @@ export class ActivityComponent {
       },
       err => console.log(err),
     );
+    if(data !== null){
+      this.activity = data.activity;
+    }
   }
 
   close(){

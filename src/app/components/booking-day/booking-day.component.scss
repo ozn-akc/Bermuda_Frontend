@@ -4,31 +4,37 @@
 
 .container{
     font-size: 16px;
-    padding: 20px;
+    padding: 10px;
+    margin: 10px;
     border-color: mat-color($primary);
     border-width: 1px;
     border-style:solid;
     color: mat-color($primary);
     text-align: center;
-    height: 100%;
+    height: calc(100% - 62px);
 }
 
 .date{
-    border-color: mat-color($primary);
-    border-width: 3px;
     margin: 10px;    
     font-size: 20px;
+    height: 30px;
+    text-align: center;
+}
+
+.activities{
+    height: calc(100% - 200px);
 }
 
 .activity{
-    margin-top: 25px;
+    margin: 10px;
     border-color: mat-color($primary);
     border-width: 1px;
     border-style:solid;
-    padding-top: 5px;
-    padding-left: 5px;
+    width: calc(100% - 20px);
+    height:100px;
+    background-color: mat-color($secondary);
+    color: mat-color($primary);
 }
-
 
 .detail{
     width: 100%;
@@ -43,4 +49,12 @@
     width: 100%;
     background-color: mat-color($secondary);
     color: mat-color($primary);
+}
+
+.bestätigen-button{
+    color: mat-color($secondary);
+    background-color: mat-color($primary);
+    height: 50px;
+    width: 100%;
+    margin-top:10px;
 }

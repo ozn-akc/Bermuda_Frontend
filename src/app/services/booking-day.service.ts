@@ -22,4 +22,8 @@ export class BookingDayService {
     return this.http
     .get<BookingDay>(this.baseUrl + id);
   }
+
+  saveBookingDay(bookingDay: BookingDay){
+    return this.http.post(this.baseUrl + "save", bookingDay);
+  }
 }
