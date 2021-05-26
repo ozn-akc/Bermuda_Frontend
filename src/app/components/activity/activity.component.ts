@@ -1,8 +1,6 @@
-import { isDefined } from '@angular/compiler/src/util';
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Activity } from 'src/app/models/activity';
-import { EmployeeToProject } from 'src/app/models/employee-to-project';
 import { Project } from 'src/app/models/project';
 import { ActivityService } from 'src/app/services/activity.service';
 import { EmpToProjService } from 'src/app/services/emp-to-proj.service';

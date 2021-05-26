@@ -8,7 +8,16 @@ export class Global  {
     currentItem: Number = 0;
     employee: Employee = new Employee;
 
-    constructor(){
+    constructor(
+        private employeeService: EmployeeService
+    ){
         this.employee.id = 1;
+        employeeService.getEmployee(1)
+        .subscribe(
+            resp => {
+                this.employee = resp
+            },
+            err => console.log(err),
+        )
     }
 }

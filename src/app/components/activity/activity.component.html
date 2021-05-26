@@ -14,7 +14,7 @@
                     <textarea class="input desc" placeholder="Aktivität" type="text" [(ngModel)]="activity.description"></textarea>
                 </div>
                 <div>
-                    <input mat-input class="input dura" title="Dauer" type="number" step=".25" [(ngModel)]="activity.duration">
+                    <input mat-input class="input dura" min="0" title="Dauer" type="number" step=".25" [(ngModel)]="activity.duration">
                 </div>
             </div>
         </div>

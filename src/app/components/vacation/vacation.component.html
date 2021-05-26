@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="activity">
+        <div class="dialog-title">{{project.name}}</div>
+        <div class="dialog-content">
+            <mat-form-field class="date-range" appearance="fill">
+                <mat-label>Zeitraum</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date" [(ngModel)]="start">
+                  <input matEndDate placeholder="End date" [(ngModel)]="end">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>              
+            <div class="activity-input-container">
+                <div>
+                    <textarea class="input desc" placeholder="Aktivität" type="text" [(ngModel)]="activity.description"></textarea>
+                </div>
+                <div>
+                    <input mat-input class="input dura" max="8" min="0" title="Dauer" type="number" step="4" [(ngModel)]="activity.duration">
+                </div>
+            </div>
+        </div>
+        <div class="dialog-action">
+            <button class="activity-button" (click)="save()">
+                Speichern
+            </button>
+            <button class="activity-button" (click)="close()">
+                Schließen
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,18 @@
 <div class="container">
-    <div class="buttons">
-
-    </div>
-    <div class="calendar">
-        <app-calendar></app-calendar>
+    <div class="home">
+        <div class="buttons">
+            <div class="button-container">
+                <button class="button" (click)="openVacation()">Urlaub</button>
+            </div>
+            <div class="button-container">
+                <button class="button" (click)="openSickness()">Krankmeldung</button>
+            </div>
+            <div class="button-container">
+                <button class="button" [routerLink]="'/stats'">Report</button>
+            </div>
+        </div>
+        <div class="calendar">
+            <app-calendar></app-calendar>
+        </div>
     </div>
 </div>

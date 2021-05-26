@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { Global } from 'src/global';
 import { EmpToProjService } from './services/emp-to-proj.service';
 import { BookingDayComponent } from './components/booking-day/booking-day.component';
+import { VacationComponent } from './components/vacation/vacation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { BookingDayComponent } from './components/booking-day/booking-day.compon
     StatisticsComponent,
     SettingsComponent,
     ActivityComponent,
-    BookingDayComponent
+    BookingDayComponent,
+    VacationComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { BookingDayComponent } from './components/booking-day/booking-day.compon
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [
     Global,
