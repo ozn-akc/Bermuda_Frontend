@@ -2,6 +2,10 @@
     <div class="date">
         {{bookingDay.date | date:'ccc'}}  {{bookingDay.date | date:'dd.MM.YYYY'}}
     </div>
+    <div class="date">
+        <input type="time" [value]="bookingDay.start">
+        <input type="time" [value]="bookingDay.end">
+    </div>
     <div>
         <ng-container *ngFor="let activity of activities">
             <div class="activity">
