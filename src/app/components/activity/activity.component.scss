@@ -4,7 +4,7 @@
 
 .container{
     width: 350px;
-    height: 450px;
+    height: 500px;
     background-color: mat-color($secondary);
     font-size: 16px;
 }
@@ -59,6 +59,12 @@
     height: 50px;
     text-align: center;
     font-size: 24px;
+}
+
+.dialog-action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .activity-button{

@@ -2,7 +2,7 @@
     <div class="activity">
         <div class="dialog-title">{{title}}</div>
         <div class="dialog-content">
-            <select matNativeControl  class="activity-project-select" [(ngModel)]="activity.project">
+            <select matNativeControl [compareWith]="compareFn" class="activity-project-select" [(ngModel)]="activity.project">
                 <option  class="project-option" *ngFor="let project of projects" [ngValue]="project">
                     <div>
                         {{project.name}}
@@ -24,6 +24,11 @@
             </button>
             <button class="activity-button" (click)="close()">
                 Schließen
+            </button>
+        </div>
+        <div class="dialog-action">
+            <button class="activity-button" (click)="deleteActivity()">
+                Delete
             </button>
         </div>
     </div>

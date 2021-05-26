@@ -17,6 +17,7 @@ export class ActivityComponent {
   title: string = "Aktivität";
   projects: Project[] = [];
   activity: Activity = new Activity;
+  currProj: Project = new Project;
 
   constructor(
     public global: Global,
@@ -44,16 +45,19 @@ export class ActivityComponent {
     }
   }
 
+  compareFn = this._compareFn.bind(this);
+
+  _compareFn(a:Project, b:Project) {
+    // Handle compare logic (eg check if unique ids are the same)
+    return a.id === b.id;
+  }
+
   close(){
-    console.log(this.activity)
-    /*
-    
     this.dialogRef.close();
-    */
   }
 
   save(){
-    this.activityService.saveBookingDay(this.activity)
+    this.activityService.saveAktivity(this.activity)
     .subscribe(
       resp =>{
         this.activity = resp as Activity
@@ -63,4 +67,14 @@ export class ActivityComponent {
     this.dialogRef.close();
   }
 
+  deleteActivity(){
+    this.activityService.deleteAktivity(this.activity)
+    .subscribe(
+      resp =>{
+        this.activity = resp as Activity
+      },
+      err => console.log(err),
+    );
+    this.dialogRef.close();
+  }
 }

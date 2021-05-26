@@ -23,7 +23,11 @@ export class ActivityService {
     .get<Activity>(this.baseUrl + id);
   }
 
-  saveBookingDay(activity: Activity){
+  saveAktivity(activity: Activity){
     return this.http.post(this.baseUrl + "save", activity);
+  }
+
+  deleteAktivity(activity: Activity){
+    return this.http.request('delete', this.baseUrl + "delete", { body: activity });
   }
 }

@@ -1,0 +1,18 @@
+@import 'src/theme.scss';
+
+@include mat-core();
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.buttons{
+    height: calc(100% / 5);
+    width: 100%;
+}
+
+.calendar{
+    height: calc(100% / 5 * 4);
+    width: 100%;
+}
