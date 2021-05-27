@@ -44,7 +44,6 @@ export class SickComponent {
       .subscribe(
         resp => {
           this.options = resp
-          this.activity.description = resp.sickDesc
           this.activity.bookingDay.start = resp.start
           this.activity.bookingDay.end = resp.end
           this.activity.bookingDay.breakHours = resp.breakHours

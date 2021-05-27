@@ -16,7 +16,8 @@
 
 .dialog-title{
     font-size: 28px;
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
     height: 40px;
     text-align: center;
     padding-top:30px;
@@ -27,12 +28,11 @@
 .dialog-content{
     background-color: mat-color($secondary);
     color: mat-color($primary);
-    width: 100%;
+    width: 80%;
+    margin-left: 10%;
 }
 
 .date-range{
-    width: 80%;
-    margin-left:10%;
     font-size: 16px;
     background-color: mat-color($secondary);
     color: mat-color($primary);
@@ -40,7 +40,11 @@
 
 ::ng-deep.mat-datepicker-content {
     background-color: mat-color($secondary);
-    color: mat-color($primary)
+    color: mat-color($primary);
+    border-color: mat-color($primary);
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 75px;
 }
 
 .activity-project-select{
@@ -52,17 +56,11 @@
     text-align: center;
     border-color: mat-color($primary);
     border-width: 2px;
-    margin-top:15px
-}
-
-.activity-input-container{
-    margin-left: 10%;
-    width: 80%;
 }
 
 .input{
     margin-top: 10px;
-    width: 100%;
+    width: 96%;
     height: 100px;
     text-align: flex;
     border-color: mat-color($primary);
@@ -72,15 +70,36 @@
     color: mat-color($primary);
 }
 
+.duration{    
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    margin-top:15px;
+}
+
 .input.dura{
-    width: 40%;
-    margin-left: 30%;
+    width: 100%;
     height: 50px;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
+}
+
+.input.dura.desc{
+    padding-top: 20px;
+    text-align: left;
 }
 
 .dialog-action{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.action{
+    width: 80%;
+    margin-left: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,9 +108,7 @@
 .activity-button{
     background-color: mat-color($primary);
     color: mat-color($secondary);
-    width: 40%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 25px;
+    width: 100%;
+    margin-top: 20px;
     height: 50px;
 }

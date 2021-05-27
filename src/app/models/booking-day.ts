@@ -1,4 +1,3 @@
-import { Time } from "@angular/common";
 import { Employee } from "./employee";
 
 export class BookingDay {

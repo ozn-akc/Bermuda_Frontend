@@ -1,17 +1,35 @@
 <div class="container">
     <div class="date">
-        {{bookingDay.date | date:'ccc'}}  {{bookingDay.date | date:'dd.MM.YYYY'}}
+        {{bookingDay.date | date:'dd.MM.YYYY'}}
     </div>
-    <div class="date">
-        <input type="time" [(ngModel)]="bookingDay.start">
-        <input type="time" [(ngModel)]="bookingDay.end">
+    <div class="time-overview">
+        {{
+            currHours +  "H/" + maxHours + "H"
+        }}
     </div>
-    <div class="date">
-        <input type="number" step=".25" style="text-align: center;" [(ngModel)]="bookingDay.breakHours">
-    </div>
+    <div class="times">
+        <div class="time">
+            <div class="time-desc">
+                Start
+            </div>
+            <input type="time" class="time-value" [(ngModel)]="bookingDay.start">
+        </div>
+        <div class="time">
+            <div class="time-desc">
+                Ende
+            </div>
+            <input type="time" class="time-value" [(ngModel)]="bookingDay.end">
+        </div>
+        <div class="time">
+            <div class="time-desc">
+                Break
+            </div>
+            <input type="number" step=".25" min="0" [max]="maxHours" class="time-value" [(ngModel)]="bookingDay.breakHours">
+        </div>
+      </div>
     <div class="activities">
         <ng-container *ngFor="let activity of activities">
-            <button class="activity" (click)="openActivityWithActivity(activity)">
+            <button class="activity" (click)="openActivityWithActivity(activity)" >
                 <div class="detail">{{activity.project.name}}</div>
                 <div class="detail" [title]="activity.description">{{activity.description}}</div>
                 <div class="detail">{{activity.duration}}</div>

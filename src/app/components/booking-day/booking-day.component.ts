@@ -1,7 +1,7 @@
-import { stringify } from '@angular/compiler/src/util';
 import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Data } from '@angular/router';
+import * as moment from 'moment';
 import { Activity } from 'src/app/models/activity';
 import { BookingDay } from 'src/app/models/booking-day';
 import { ActivityService } from 'src/app/services/activity.service';
@@ -17,28 +17,44 @@ import { ActivityComponent } from '../activity/activity.component';
 export class BookingDayComponent implements AfterContentInit{
   @Input() bookingDay: BookingDay = new BookingDay;
   activities: Activity[] = [];
+  maxHours: number = 0;
+  currHours: number = 0;
 
   constructor(
     public global: Global,
     private activityService: ActivityService,
     private bookingDayService: BookingDayService,
     private dialog: MatDialog
-    ) { }
+    ) { } 
 
+    
   ngAfterContentInit(): void {
     this.activityService.getActivitiesByBookingDayId(this.bookingDay.id)
     .subscribe(
       resp =>{
-        this.activities = resp
+        this.activities = resp;
+        var a = 0;
+        resp.forEach(
+          act => this.currHours += act.duration
+        );
       },
       err => console.log(err),
     );
+    this.maxHours += this.convertDateToNumber(this.bookingDay.end);
+    this.maxHours -= this.convertDateToNumber(this.bookingDay.start);
+    this.maxHours -= this.bookingDay.breakHours;
+  }
+
+  convertDateToNumber(d1:Date){
+    var hm1 = d1.toString().split(/[.:]/);
+    var h1 = parseInt(hm1[0], 10);
+    var m1 = hm1[1] ? parseInt(hm1[1], 10) : 0;
+    return h1 + ((m1*10/6)/100);
   }
 
     openActivity() {
       const dialogConfig = new MatDialogConfig();
-  
-      dialogConfig.disableClose = true;
+      dialogConfig.disableClose = false;
       dialogConfig.autoFocus = true;
       dialogConfig.data = {
         bookinday: this.bookingDay,
@@ -50,7 +66,7 @@ export class BookingDayComponent implements AfterContentInit{
     openActivityWithActivity(data: Data) {
       const dialogConfig = new MatDialogConfig();
   
-      dialogConfig.disableClose = true;
+      dialogConfig.disableClose = false;
       dialogConfig.autoFocus = true;
       dialogConfig.data = {
         bookinday: null,
@@ -69,4 +85,4 @@ export class BookingDayComponent implements AfterContentInit{
       );
     }
 
-}
+  }

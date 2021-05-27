@@ -6,7 +6,7 @@
     font-size: 16px;
     padding: 10px;
     margin: 10px;
-    border-color: mat-color($primary);
+    border-color: mat-color($accent);
     border-width: 1px;
     border-style:solid;
     color: mat-color($primary);
@@ -16,25 +16,58 @@
 
 .date{
     margin: 10px;    
-    font-size: 20px;
+    font-size: 24px; 
+    width: 100%;
     height: 30px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.time-overview{
+    position: relative; 
+    font-size: 20px;
+}
+
+.times{
+    width: 100%;
+    margin:10px;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.time{
+    display: flex;
+    width: 80%;
+    margin-top:5px;
+    margin-bottom:5px;
+    font-size: 16px;
+}
+
+.time-desc{
+    width: 50px;
+    margin-right: 10px;
+}
+
+.time-value{
+    width: calc(100% - 50px);
     text-align: center;
 }
 
 .activities{
-    height: calc(100% - 200px);
+    height: calc(100% - 260px);
+    width: 100%;
     overflow: auto;
 }
 
 .activity{
     margin: 10px;
-    border-color: mat-color($primary);
+    border-color: mat-color($accent);
     border-width: 1px;
     border-style:solid;
     width: calc(100% - 20px);
-    height:100px;
     background-color: mat-color($secondary);
-    color: mat-color($primary);
+    color: black;
 }
 
 .detail{
@@ -56,6 +89,6 @@
     color: mat-color($secondary);
     background-color: mat-color($primary);
     height: 50px;
-    width: 100%;
+    width: 50%;
     margin-top:10px;
 }

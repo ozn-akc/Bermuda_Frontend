@@ -28,7 +28,10 @@ export class ActivityComponent {
     .subscribe(
       resp =>{
         resp.forEach(
-          res => this.projects.push(res.project)
+          res => {
+            this.projects.push(res.project);
+            this.activity.project = res.project;
+          }
         )
       },
       err => console.log(err),

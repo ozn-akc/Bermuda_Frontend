@@ -11,22 +11,24 @@
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-date-range-picker #picker></mat-date-range-picker>
               </mat-form-field>              
-            <div class="activity-input-container">
+              <div class="activity-input-container">
                 <div>
                     <textarea class="input desc" placeholder="Aktivität" type="text" [(ngModel)]="activity.description"></textarea>
                 </div>
-                <div>
-                    <input mat-input class="input dura" max="8" min="0" title="Dauer" type="number" step="4" [(ngModel)]="activity.duration">
+                <div class="duration">
+                    <select mat-select [(ngModel)]="activity.duration" class="input dura">
+                        <option value="8"> Ganzer Tag </option>
+                        <option value="4"> Halber Tag </option>
+                    </select>
                 </div>
             </div>
         </div>
         <div class="dialog-action">
-            <button class="activity-button" (click)="save()">
-                Speichern
-            </button>
-            <button class="activity-button" (click)="close()">
-                Schließen
-            </button>
+            <div class="action">
+                <button class="activity-button" (click)="save()">
+                    Speichern
+                </button>
+            </div>
         </div>
     </div>
 </div>
