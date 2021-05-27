@@ -18,6 +18,8 @@ import { Global } from 'src/global';
 import { EmpToProjService } from './services/emp-to-proj.service';
 import { BookingDayComponent } from './components/booking-day/booking-day.component';
 import { VacationComponent } from './components/vacation/vacation.component';
+import { DatePipe } from '@angular/common';
+import { SickComponent } from './components/sick/sick.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { VacationComponent } from './components/vacation/vacation.component';
     SettingsComponent,
     ActivityComponent,
     BookingDayComponent,
-    VacationComponent
+    VacationComponent,
+    SickComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,7 @@ import { VacationComponent } from './components/vacation/vacation.component';
   ],
   providers: [
     Global,
-    EmpToProjService
+    DatePipe
   ],
   bootstrap: [AppComponent],
   entryComponents: [

@@ -11,11 +11,11 @@ import { ProjectService } from 'src/app/services/project.service';
 import { Global } from 'src/global';
 
 @Component({
-  selector: 'app-vacation',
-  templateUrl: './vacation.component.html',
-  styleUrls: ['./vacation.component.scss']
+  selector: 'app-sick',
+  templateUrl: './sick.component.html',
+  styleUrls: ['./sick.component.scss']
 })
-export class VacationComponent {
+export class SickComponent {
   title: string = "Aktivität";
   options: Options = new Options;
   activity: Activity = new Activity;
@@ -29,10 +29,10 @@ export class VacationComponent {
     private bookingDayService: BookingDayService,
     private activityService: ActivityService,
     private datePipe: DatePipe,
-    private dialogRef: MatDialogRef<VacationComponent>,
+    private dialogRef: MatDialogRef<SickComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
     projectService
-      .getProject(1)
+      .getProject(2)
       .subscribe(
         resp => {
           this.activity.project = resp
@@ -44,7 +44,7 @@ export class VacationComponent {
       .subscribe(
         resp => {
           this.options = resp
-          this.activity.description = resp.vacDesc
+          this.activity.description = resp.sickDesc
           this.activity.bookingDay.start = resp.start
           this.activity.bookingDay.end = resp.end
           this.activity.bookingDay.breakHours = resp.breakHours
@@ -75,5 +75,4 @@ export class VacationComponent {
       )
     this.dialogRef.close();
   }
-
 }

@@ -18,6 +18,11 @@ export class BookingDayService {
     .get<BookingDay[]>(this.baseUrl + "employee/" + employee_id);
   }
 
+  getBookingDayByEmpIdAndDate(employee_id: number, date: string){
+    return this.http
+    .get<BookingDay>(this.baseUrl +"date/"+ employee_id +"/" + date);
+  }
+
   getBookingDayById(id: number){
     return this.http
     .get<BookingDay>(this.baseUrl + id);

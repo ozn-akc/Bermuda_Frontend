@@ -27,6 +27,15 @@ export class ActivityService {
     return this.http.post(this.baseUrl + "save", activity);
   }
 
+  saveAktivityInTimeSpan(activity: Activity, employeeId: number, start: string | null, end: string | null){
+    return this.http.post(this.baseUrl + "save/span", {
+      activity,
+      employeeId,
+      start,
+      end
+    });
+  }
+
   deleteAktivity(activity: Activity){
     return this.http.request('delete', this.baseUrl + "delete", { body: activity });
   }
