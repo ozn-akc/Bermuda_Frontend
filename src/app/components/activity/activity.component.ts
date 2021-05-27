@@ -65,8 +65,19 @@ export class ActivityComponent {
     this.dialogRef.close();
   }
 
-  deleteActivity(){
+  delete(){
     this.activityService.deleteAktivity(this.activity)
+    .subscribe(
+      resp =>{
+        this.activity = resp as Activity
+      },
+      err => console.log(err),
+    );
+    this.dialogRef.close();
+  }
+
+  copy(){
+    this.activityService.saveCopyLastDay(this.activity)
     .subscribe(
       resp =>{
         this.activity = resp as Activity

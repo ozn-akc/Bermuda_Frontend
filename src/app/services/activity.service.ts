@@ -36,6 +36,10 @@ export class ActivityService {
     });
   }
 
+  saveCopyLastDay(activity: Activity){
+    return this.http.post(this.baseUrl + "save/copy", activity);
+  }
+
   deleteAktivity(activity: Activity){
     return this.http.request('delete', this.baseUrl + "delete", { body: activity });
   }
