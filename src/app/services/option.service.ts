@@ -19,4 +19,9 @@ export class OptionService {
     .get<Options>(this.baseUrl + employee_id);
   }
 
+  saveOptions(options: Options){
+    return this.http
+    .post<Options>(this.baseUrl, options);
+  }
+
 }

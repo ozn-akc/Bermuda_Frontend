@@ -23,4 +23,12 @@ export class SettingsComponent {
     );
   }
 
+  save(){
+    this.optionsService.saveOptions(this.options)
+    .subscribe(
+      resp => this.options = resp,
+      err => console.log(err)
+    );
+    
+  }
 }
