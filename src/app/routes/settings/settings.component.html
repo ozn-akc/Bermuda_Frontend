@@ -1,1 +1,39 @@
-<p>settings works!</p>
+<div class="container">
+    <div class="settings">
+        <div class="option-container">
+            <div class="time">
+                <div class="input-container">
+                    <div class="input_desc">Start</div>
+                    <input class="input_value" type="time" [(ngModel)]="options.start">
+                </div>
+                <div class="input-container">
+                    <div class="input_desc">End</div>
+                    <input class="input_value" type="time" [(ngModel)]="options.end">
+                </div>
+            </div>
+            <div class="break">
+                <div class="input-container">
+                    <div class="input_desc">Break</div>
+                    <input class="input_value" type="int" step=".25" min=".5" [(ngModel)]="options.breakHours">
+                </div>
+            </div>
+        </div>
+        <div class="option-container">
+            <div class="description">
+                <div class="input-container">
+                    <div class="input_desc">Urlaub Default</div>
+                    <input class="input_value" type="text" [(ngModel)]="options.vacDesc">
+                </div>
+                <div class="input-container">
+                    <div class="input_desc">Krankheit Default</div>
+                    <input class="input_value" type="text" [(ngModel)]="options.sickDesc">
+                </div>
+            </div>
+        </div>
+        <div class="option-container confirm">
+            <button class="confirm-button">
+                Bestätigen
+            </button>
+        </div>
+    </div>
+</div>

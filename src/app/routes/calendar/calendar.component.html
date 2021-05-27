@@ -1,13 +1,13 @@
 <div class="container">
     <div class="calendar">
         <div class="timeframe">
-            <button mat-fab class="button left" >
+            <button mat-fab class="button left" (click)="removeWeek()" >
                 <mat-icon class="icon">
                     arrow_back
                 </mat-icon>
             </button>
-            <div class="time">{{from | date:'dd.MM.YYYY'}}  -  {{to | date:'dd.MM.YYYY'}}</div>
-            <button mat-fab class="button right" >
+            <div class="time">{{fromString}}  -  {{toString}}</div>
+            <button mat-fab class="button right" (click)="addWeek()">
                 <mat-icon class="icon">
                     arrow_forward
                 </mat-icon>

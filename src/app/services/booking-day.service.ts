@@ -18,7 +18,8 @@ export class BookingDayService {
     .get<BookingDay[]>(this.baseUrl + "employee/" + employee_id);
   }
 
-  getBookingDayByEmpIdAndDate(employee_id: number, date: string){
+  getBookingDayByEmpIdAndDate(employee_id: number, date: string | null){
+    console.log(this.baseUrl +"date/"+ employee_id +"/" + date)
     return this.http
     .get<BookingDay>(this.baseUrl +"date/"+ employee_id +"/" + date);
   }

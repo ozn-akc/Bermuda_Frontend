@@ -1,0 +1,65 @@
+@import 'src/theme.scss';
+
+@include mat-core();
+
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.settings{
+    height: 100%;
+    width: 100%;
+}
+
+.option-container{
+    width: 90%;
+    height: calc(100% / 3);
+    background-color: mat-color($secondary);
+    color: mat-color($primary);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.time{
+    width: 25%;
+}
+
+.break{
+    width: 25%;
+}
+
+.description{
+    width: 50%;
+}
+
+.input-container{
+    display: flex;
+    margin: 10%;
+}
+
+.input_desc{
+    width: calc(100% / 3);
+    text-align: center;
+}
+
+.input_value{
+    width: calc(100% / 3 * 2);
+    text-align: center;
+}
+
+.confirm{
+    justify-content: center;
+    align-content: center;
+    width: calc(100% / 3);
+    width: 100%;
+}
+
+.confirm-button{
+    background-color: mat-color($primary);
+    color: mat-color($secondary);
+    height: 30%;
+    width: 33%;
+    margin-top: 5%;
+}
