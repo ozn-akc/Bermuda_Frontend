@@ -24,29 +24,36 @@
 
 .time{
     width: 25%;
+    height: 20%;
 }
 
 .break{
     width: 25%;
+    height: 20%;
 }
 
 .description{
     width: 50%;
+    height: 20%;
 }
 
 .input-container{
-    display: flex;
-    margin: 10%;
+    display: block ruby;
+    margin: 10%;;
+    height: 100%;
 }
 
 .input_desc{
-    width: calc(100% / 3);
+    width: 50%;
     text-align: center;
+    font-size: 22px;
+    height: 50%;
 }
 
 .input_value{
-    width: calc(100% / 3 * 2);
+    width: 50%;
     text-align: center;
+    height: 100%;
 }
 
 .confirm{

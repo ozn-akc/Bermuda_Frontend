@@ -20,6 +20,7 @@ import { BookingDayComponent } from './components/booking-day/booking-day.compon
 import { VacationComponent } from './components/vacation/vacation.component';
 import { DatePipe } from '@angular/common';
 import { SickComponent } from './components/sick/sick.component';
+import { WorkTimeStatusComponent } from './components/work-time-status/work-time-status.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SickComponent } from './components/sick/sick.component';
     ActivityComponent,
     BookingDayComponent,
     VacationComponent,
-    SickComponent
+    SickComponent,
+    WorkTimeStatusComponent
   ],
   imports: [
     BrowserModule,

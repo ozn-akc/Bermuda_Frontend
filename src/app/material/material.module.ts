@@ -14,6 +14,8 @@ import { MatSelectModule } from "@angular/material/select";
 import {MatCardModule} from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 const MaterialComponents = [
   MatSliderModule,
@@ -30,7 +32,9 @@ const MaterialComponents = [
   MatSelectModule,
   MatCardModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatRadioModule,
+  MatSlideToggleModule
 ];
 
 @NgModule({

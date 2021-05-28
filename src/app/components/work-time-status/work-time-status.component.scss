@@ -1,0 +1,59 @@
+@import 'src/theme.scss';
+
+@include mat-core();
+
+.container{
+    height: 100%;
+    width: 100%;
+    background-color: mat-color($secondary);
+    color: black;
+    font-size: 16px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.time-work-status{
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    margin: 5px;
+}
+
+.desc.title{
+    color: mat-color($primary);
+}
+
+
+.time-status{
+    margin: 5px;
+    display: flex;
+    height: calc(100% - 30px);
+}
+
+.time-status-item{
+    display: grid;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    width: 100%;
+    height: 100%;
+    margin:5px;
+}
+
+.desc{
+    margin: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.flex{
+    display:flex;
+    width: 100%;
+    height: 100%;
+}
+
+.grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+}

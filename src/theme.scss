@@ -25,7 +25,7 @@ $my-gray: (
 $primary: mat-palette($my-blue, 100);
 $secondary: mat-palette($my-white,100);
 $accent: mat-palette($my-gray, 100);
-$warn: mat-palette($mat-red, 100);
+$warn: mat-palette($mat-red, 500);
 
 $bermuda-theme: mat-light-theme((
   color: (

@@ -19,6 +19,7 @@ export class BookingDayComponent implements AfterContentInit{
   activities: Activity[] = [];
   maxHours: number = 0;
   currHours: number = 0;
+  maxBreakHours: number = 0;
 
   constructor(
     public global: Global,
@@ -40,9 +41,7 @@ export class BookingDayComponent implements AfterContentInit{
       },
       err => console.log(err),
     );
-    this.maxHours += this.convertDateToNumber(this.bookingDay.end);
-    this.maxHours -= this.convertDateToNumber(this.bookingDay.start);
-    this.maxHours -= this.bookingDay.breakHours;
+    this.refreshMaxValues();
   }
 
   convertDateToNumber(d1:Date){
@@ -85,4 +84,13 @@ export class BookingDayComponent implements AfterContentInit{
       );
     }
 
+    refreshMaxValues(){
+      this.maxHours = 0;
+      this.maxBreakHours = 0;
+      this.maxHours += this.convertDateToNumber(this.bookingDay.end);
+      this.maxHours -= this.convertDateToNumber(this.bookingDay.start);
+      this.maxBreakHours = this.maxHours;
+      this.maxBreakHours -= this.bookingDay.employee.hoursPerWeek/5;
+      this.maxHours -= this.bookingDay.breakHours;
+    }
   }

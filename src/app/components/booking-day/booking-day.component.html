@@ -12,26 +12,26 @@
             <div class="time-desc">
                 Start
             </div>
-            <input type="time" class="time-value" [(ngModel)]="bookingDay.start">
+            <input #start type="time" class="time-value" [max]="bookingDay.end" [(ngModel)]="bookingDay.start" (change)="refreshMaxValues()">
         </div>
         <div class="time">
             <div class="time-desc">
                 Ende
             </div>
-            <input type="time" class="time-value" [(ngModel)]="bookingDay.end">
+            <input #end type="time" class="time-value" [min]="bookingDay.start" [(ngModel)]="bookingDay.end" (change)="refreshMaxValues()">
         </div>
         <div class="time">
             <div class="time-desc">
                 Break
             </div>
-            <input type="number" step=".25" min="0" [max]="maxHours" class="time-value" [(ngModel)]="bookingDay.breakHours">
+            <input #break type="number" step=".25" min="0" [max]="maxBreakHours" class="time-value" [(ngModel)]="bookingDay.breakHours" (change)="refreshMaxValues()">
         </div>
       </div>
     <div class="activities">
         <ng-container *ngFor="let activity of activities">
             <button class="activity" (click)="openActivityWithActivity(activity)" >
                 <div class="detail">{{activity.project.name}}</div>
-                <div class="detail" [title]="activity.description">{{activity.description}}</div>
+                <div class="detail desc" [title]="activity.description">{{activity.description}}</div>
                 <div class="detail">{{activity.duration}}</div>
             </button>
         </ng-container>
@@ -45,5 +45,4 @@
         <button class="bestätigen-button" (click)="saveBookingDay()">
             Bestätigen
         </button>
-    </div>
-</div>
+    </div> 

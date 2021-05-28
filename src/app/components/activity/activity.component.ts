@@ -30,7 +30,9 @@ export class ActivityComponent {
         resp.forEach(
           res => {
             this.projects.push(res.project);
-            this.activity.project = res.project;
+            if(this.activity.id==0){
+              this.activity.project = res.project;
+            }
           }
         )
       },

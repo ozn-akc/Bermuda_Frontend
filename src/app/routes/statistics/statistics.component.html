@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="statistics">
+        <div class="filter">
+            <ng-container *ngIf="dateIsDefault == true; then default; else custom"></ng-container>
+            <ng-template #default>
+                <div class="toggle">
+                    <button mat-stroked-button class="toggle-button" (click)="changeValue()">Benutzerdefinierte Eingabe</button>
+                </div>
+                <div class="date-filter default">
+                    <div class="date-picker-container">
+                        <input matInput [matDatepicker]="picker" [(ngModel)]="from">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>  
+                    </div>
+                    <div class="date-picker-container select">
+                            <mat-select class="date-picker-select" [(ngModel)]="timeSpan">
+                                <mat-option  class="project-option" *ngFor="let default of defaults" [value]="default.value">
+                                    <div>
+                                        {{default.desc}}
+                                    </div>
+                                </mat-option>
+                            </mat-select>
+                    </div>
+                </div>
+                <div class="toggle">
+                    <button mat-stroked-button class="toggle-button" (click)="changeValue()">Statistik abrufen</button>
+                </div>
+            </ng-template>
+            <ng-template #custom>
+                <div class="toggle">
+                        <button mat-stroked-button class="toggle-button" (click)="changeValue()">Defaut eingabe</button>
+                </div>
+                <div class="date-filter custom">
+                    <div class="date-picker-container">
+                        <mat-date-range-input class="range" [rangePicker]="picker">
+                          <input matStartDate placeholder="Start date" [(ngModel)]="from">
+                          <input matEndDate placeholder="End date" [(ngModel)]="to">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </div>
+                </div>
+                <div class="toggle">
+                    <button mat-stroked-button class="toggle-button" (click)="changeValue()">Statistik abrufen</button>
+                </div>
+            </ng-template>
+        </div>
+        <div class="status">
+            <app-work-time-status></app-work-time-status>
+        </div>
+        <div class="confirm">
+
+        </div>
+    </div>
+</div>
