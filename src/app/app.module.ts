@@ -21,6 +21,7 @@ import { VacationComponent } from './components/vacation/vacation.component';
 import { DatePipe } from '@angular/common';
 import { SickComponent } from './components/sick/sick.component';
 import { WorkTimeStatusComponent } from './components/work-time-status/work-time-status.component';
+import { WorkTimeConfirmComponent } from './components/work-time-confirm/work-time-confirm.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { WorkTimeStatusComponent } from './components/work-time-status/work-time
     BookingDayComponent,
     VacationComponent,
     SickComponent,
-    WorkTimeStatusComponent
+    WorkTimeStatusComponent,
+    WorkTimeConfirmComponent
   ],
   imports: [
     BrowserModule,

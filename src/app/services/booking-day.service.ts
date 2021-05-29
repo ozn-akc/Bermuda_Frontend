@@ -31,4 +31,12 @@ export class BookingDayService {
   saveBookingDay(bookingDay: BookingDay){
     return this.http.post(this.baseUrl + "save", bookingDay);
   }
+
+  getBookingDayInDefSpan(employee_id: number, ref: string | null, def: number) {
+    return this.http.get<BookingDay[]>(this.baseUrl + "date/" +employee_id +"/" + ref +"/span=" +def);
+  }
+
+  getBookingDayInCustomSpan(employee_id: number, from: string | null, to: string | null) {
+    return this.http.get<BookingDay[]>(this.baseUrl + "date/" +employee_id +"/" + from +"/" +to);
+  }
 }

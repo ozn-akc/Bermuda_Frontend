@@ -49,7 +49,9 @@
             <app-work-time-status [stats]="stats"></app-work-time-status>
         </div>
         <div class="confirm">
-
+            <ng-container *ngFor="let bookingDay of bookingDays">
+                <app-work-time-confirm class="time-confirm"></app-work-time-confirm>
+            </ng-container>
         </div>
     </div>
 </div>
