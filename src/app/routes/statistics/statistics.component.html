@@ -14,7 +14,7 @@
                     </div>
                     <div class="date-picker-container select">
                             <mat-select class="date-picker-select" [(ngModel)]="timeSpan">
-                                <mat-option  class="project-option" *ngFor="let default of defaults" [value]="default.value">
+                                <mat-option  class="option" *ngFor="let default of defaults" [value]="default.value">
                                     <div>
                                         {{default.desc}}
                                     </div>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="toggle">
-                    <button mat-stroked-button class="toggle-button" (click)="changeValue()">Statistik abrufen</button>
+                    <button mat-stroked-button class="toggle-button" (click)="getDefaultStats()">Statistik abrufen</button>
                 </div>
             </ng-template>
             <ng-template #custom>
@@ -41,12 +41,12 @@
                     </div>
                 </div>
                 <div class="toggle">
-                    <button mat-stroked-button class="toggle-button" (click)="changeValue()">Statistik abrufen</button>
+                    <button mat-stroked-button class="toggle-button" (click)="getCustomStats()">Statistik abrufen</button>
                 </div>
             </ng-template>
         </div>
         <div class="status">
-            <app-work-time-status></app-work-time-status>
+            <app-work-time-status [stats]="stats"></app-work-time-status>
         </div>
         <div class="confirm">
 

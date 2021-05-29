@@ -45,6 +45,7 @@
     display:flex;
     align-self: center;
     margin-left:5%;
+    font-size: 18px;
 }
 
 .date-picker-container.select{
@@ -55,6 +56,10 @@
     justify-content: center;
     align-items: center;
     padding-left: 10px;
+}
+
+.option{
+    background-color: mat-color($secondary);
 }
 
 .range{
@@ -102,6 +107,15 @@
 
 ::ng-deep.mat-datepicker-toggle-default-icon {
     scale: 1.3;
+}
+
+::ng-deep.mat-datepicker-content {
+    background-color: mat-color($secondary);
+    color: mat-color($primary);
+    border-color: mat-color($primary);
+    border-width: 2px;
+    border-style: solid;
+    margin-right: 75px;
 }
 
 .status{

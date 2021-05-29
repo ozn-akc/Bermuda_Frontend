@@ -6,14 +6,14 @@
                 <div class="desc title">Vertragsdaten</div>
                 <div class="flex">
                     <div class="desc">
-                        10.10 - 21.12
+                        {{stats.timeSpan}}
                     </div>
                     <div class="desc">
-                        40H/W
+                        {{stats.hoursPerWeek}}H/W
                     </div>
                 </div>
                 <div class="desc">
-                    Job Beschreibung
+                    {{stats.jobDescription}}
                 </div>
             </div>
             <div class="time-status-item">
@@ -25,7 +25,7 @@
                         Soll: 
                     </div>
                     <div class="desc">
-                        Anzahl 40H
+                        {{stats.shouldWork}}H
                     </div>
                 </div>
                 <div class="flex">
@@ -33,7 +33,7 @@
                         Ist: 
                     </div>
                     <div class="desc">
-                        Anzahl 40H
+                        {{stats.isWork}}H
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                             Start
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.startFlex}}
                         </div>
                     </div>
                     <div class="grid">
@@ -55,7 +55,7 @@
                             Aktuell
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.currFlex}}
                         </div>
                     </div>
                     <div class="grid">
@@ -63,7 +63,7 @@
                             Ende
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.endFlex}}
                         </div>
                     </div>
                 </div>
@@ -75,10 +75,10 @@
                 <div class="flex">
                     <div class="grid">
                         <div class="desc">
-                            Start
+                            Genommen
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.takenVac}}
                         </div>
                     </div>
                     <div class="grid">
@@ -86,15 +86,15 @@
                             Aktuell
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.currVac}}
                         </div>
                     </div>
                     <div class="grid">
                         <div class="desc">
-                            Ende
+                            Rest
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.leftVac}}
                         </div>
                     </div>
                 </div>
@@ -106,10 +106,10 @@
                 <div class="flex">
                     <div class="grid">
                         <div class="desc">
-                            Start
+                            Alt
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.oldSic}}
                         </div>
                     </div>
                     <div class="grid">
@@ -117,15 +117,15 @@
                             Aktuell
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.currSic}}
                         </div>
                     </div>
                     <div class="grid">
                         <div class="desc">
-                            Ende
+                            Gesamt
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.allSic}}
                         </div>
                     </div>
                 </div>
@@ -137,10 +137,10 @@
                 <div class="flex">
                     <div class="grid">
                         <div class="desc">
-                            Start
+                            Alt
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.oldTrain}}
                         </div>
                     </div>
                     <div class="grid">
@@ -148,15 +148,15 @@
                             Aktuell
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.currTrain}}
                         </div>
                     </div>
                     <div class="grid">
                         <div class="desc">
-                            Ende
+                            Gesamt
                         </div>
                         <div class="desc">
-                            Anzahl 0
+                            {{stats.allTrain}}
                         </div>
                     </div>
                 </div>
