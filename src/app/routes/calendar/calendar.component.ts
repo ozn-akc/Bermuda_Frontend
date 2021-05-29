@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { AfterContentInit, AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, DoCheck, OnInit, resolveForwardRef } from '@angular/core';
 import { BookingDay } from 'src/app/models/booking-day';
 import { BookingDayService } from 'src/app/services/booking-day.service';
 import { Global } from 'src/global';
@@ -14,8 +14,8 @@ export class CalendarComponent implements OnInit, DoCheck{
   
   bookingDays: BookingDay[] = [];
 
-  from: Date = new Date('2021-05-17T00:00:00' );
-  to: Date = new Date('2021-05-21T00:00:00' );
+  from: Date = new Date;
+  to: Date = new Date;
   fromString: string | null = "";
   toString: string | null = "";
   
@@ -24,6 +24,8 @@ export class CalendarComponent implements OnInit, DoCheck{
     private bookingDayService: BookingDayService,
     private datePipe: DatePipe) { 
     global.currentItem = 1;
+    this.from = this.getMonday();
+    this.to = this.getSunday();
   }
 
   ngDoCheck(): void {
@@ -44,6 +46,20 @@ export class CalendarComponent implements OnInit, DoCheck{
   ngOnInit(): void{
     this.getBookingDays();
   }
+  
+  getMonday() {
+    var d = new Date;
+    var day = d.getDay(),
+        diff = d.getDate() - day + (day == 0 ? -6:1); // adjust when day is sunday
+    return new Date(d.setDate(diff));
+  }
+  
+  getSunday() {
+    var d = new Date;
+    var day = d.getDay(),
+        diff = d.getDate() - day + (day == 0 ? -6:5); // adjust when day is sunday
+    return new Date(d.setDate(diff));
+  }
 
   getDiffernceDates(d1:Date, d2:Date): number{
     var a = moment(d1);
@@ -60,10 +76,11 @@ export class CalendarComponent implements OnInit, DoCheck{
       date = new Date(this.from);
       date.setDate(this.from.getDate()+i);
       dateString = this.datePipe.transform(date, "YYYY-MM-dd")
-      this.bookingDayService.getBookingDayByEmpIdAndDate(1, dateString)
+      this.bookingDayService.getBookingDayByEmpIdAndDate(this.global.employee.id, dateString)
       .subscribe(
         resp =>{
-          this.bookingDays.push(resp)
+          resp.employee = this.global.employee;
+          this.bookingDays.push(resp);
         },
         err => console.log(err),
       );

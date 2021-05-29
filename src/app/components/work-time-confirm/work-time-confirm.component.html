@@ -1,13 +1,26 @@
 <div  class="container">
     <div class="time-work-confirm">
         <div class="time-confirm flex">
-            <div class="time-confirm-item">
-                Datum
+            <div class="time-confirm-item date">
+                {{bookingDay.date | date: "dd.MM.YYYY"}}
             </div>
             <div class="time-confirm-item grid">
-                <ng-container>
-                    
+                <ng-container *ngFor="let activity of activities">
+                    <div class="flex activity">
+                        <div class="proj">
+                            {{activity.project.name}}
+                        </div>
+                        <div class="desc">
+                            {{activity.description}}
+                        </div>
+                        <div class="status">
+                            {{activity.status}}
+                        </div>
+                    </div>
                 </ng-container>
+            </div>
+            <div class="time-confirm-item sum">
+                Summe der Stunden
             </div>
         </div>
     </div>

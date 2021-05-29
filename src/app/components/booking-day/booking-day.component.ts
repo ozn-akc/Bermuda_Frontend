@@ -26,7 +26,8 @@ export class BookingDayComponent implements AfterContentInit{
     private activityService: ActivityService,
     private bookingDayService: BookingDayService,
     private dialog: MatDialog
-    ) { } 
+    ) { 
+    } 
 
     
   ngAfterContentInit(): void {
