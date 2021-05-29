@@ -12,6 +12,7 @@ import { Global } from 'src/global';
 export class WorkTimeConfirmComponent implements AfterContentInit, DoCheck{
   @Input() bookingDay: BookingDay = new BookingDay;
   activities: Activity[] = [];
+  sum: number = 0;
   
   constructor(
     private global: Global,
@@ -24,7 +25,6 @@ export class WorkTimeConfirmComponent implements AfterContentInit, DoCheck{
     .subscribe(
       resp => {
         this.activities = resp;
-        console.log(resp);
       },
       err => console.log(err)
     )
@@ -32,6 +32,10 @@ export class WorkTimeConfirmComponent implements AfterContentInit, DoCheck{
 
   ngDoCheck(): void {
     this.sort();
+    this.sum = 0;
+    this.activities.forEach(
+      activity => this.sum += activity.duration
+    )
   }
 
   sort(){
@@ -44,4 +48,5 @@ export class WorkTimeConfirmComponent implements AfterContentInit, DoCheck{
       );
     }
   }
+  
 }

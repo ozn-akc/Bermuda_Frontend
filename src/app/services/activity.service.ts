@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Activity } from '../models/activity';
+import { BookingDay } from '../models/booking-day';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,10 @@ export class ActivityService {
 
   saveCopyLastDay(activity: Activity){
     return this.http.post(this.baseUrl + "save/copy", activity);
+  }
+
+  saveInitActivityStatus(bookingDay: BookingDay){
+    return this.http.post(this.baseUrl + "/save/status", bookingDay)
   }
 
   deleteAktivity(activity: Activity){

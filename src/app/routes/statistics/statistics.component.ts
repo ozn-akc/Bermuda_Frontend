@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { BookingDay } from 'src/app/models/booking-day';
+import { ActivityService } from 'src/app/services/activity.service';
 import { BookingDayService } from 'src/app/services/booking-day.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { Global } from 'src/global';
@@ -13,7 +14,9 @@ import { Global } from 'src/global';
 export class StatisticsComponent {
 
   dateIsDefault = true;
-  
+  isSelected:boolean = false;
+  hasBookingDays = false;
+
   defaults = [
     {
       value: 0,
@@ -47,6 +50,7 @@ export class StatisticsComponent {
     private global: Global,
     private statsService: StatisticsService,
     private bookingDayService: BookingDayService,
+    private activityService: ActivityService,
     private datePipe: DatePipe
     ) {
     global.currentItem = 2;
@@ -54,7 +58,6 @@ export class StatisticsComponent {
    
    changeValue(){
     this.dateIsDefault = !this.dateIsDefault;
-    console.log(this.bookingDays);
    }
 
    getDefaultStats(){
@@ -67,6 +70,7 @@ export class StatisticsComponent {
       err => console.log(err)
     )
     this.getDefaultBookingDays();
+    this.isSelected = true;
     }
 
     getCustomStats(){
@@ -79,8 +83,8 @@ export class StatisticsComponent {
         resp => this.stats = resp,
         err => console.log(err)
       )
-      console.log(this.bookingDays);
       this.getCustomBookingDays();
+      this.isSelected = true;
     }
     
     getDefaultBookingDays(){
@@ -90,7 +94,10 @@ export class StatisticsComponent {
         this.timeSpan
         )
         .subscribe(
-          resp => this.bookingDays = resp,
+          resp => {
+            this.bookingDays = resp;
+            this.hasBookingDays = this.bookingDays.length > 0;
+          },
           err => console.log(err)
         )
     }
@@ -102,8 +109,20 @@ export class StatisticsComponent {
         this.datePipe.transform(this.to, "YYYY-MM-dd")
         )
         .subscribe(
-          resp => this.bookingDays = resp,
+          resp => {
+            this.bookingDays = resp;
+            this.hasBookingDays = this.bookingDays.length > 0;
+          },
           err => console.log(err)
         )
+    }
+
+    confirmTimes(){
+      this.bookingDays.forEach(
+        bookingDay => {
+          this.activityService.saveInitActivityStatus(bookingDay)
+          .subscribe()
+        }
+      )
     }
 }

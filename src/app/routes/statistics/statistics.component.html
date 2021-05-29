@@ -45,13 +45,26 @@
                 </div>
             </ng-template>
         </div>
-        <div class="status">
-            <app-work-time-status [stats]="stats"></app-work-time-status>
-        </div>
-        <div class="confirm">
-            <ng-container *ngFor="let bookingDay of bookingDays">
-                <app-work-time-confirm class="time-confirm" [bookingDay]="bookingDay"></app-work-time-confirm>
-            </ng-container>
-        </div>
+        <ng-container *ngIf="isSelected == true; then selected; else notSelectedf"></ng-container>
+        <ng-template #selected>
+            <div class="status">
+                <app-work-time-status [stats]="stats"></app-work-time-status>
+            </div>
+            <div class="confirm">
+                <ng-container *ngFor="let bookingDay of bookingDays">
+                    <app-work-time-confirm class="time-confirm" [bookingDay]="bookingDay"></app-work-time-confirm>
+                </ng-container>
+                <ng-container *ngIf="hasBookingDays == true; then hasDays; else noDays"></ng-container>
+                <ng-template #hasDays>
+                    <div class="confirm-button">
+                        <button mat-stroked-button class="toggle-button-confirm" (click)="confirmTimes()">Bestätigen</button>
+                    </div>
+                </ng-template>
+                <ng-template #noDays>
+                </ng-template>
+            </div>
+        </ng-template>
+        <ng-template #notSelectedf>
+        </ng-template>
     </div>
 </div>

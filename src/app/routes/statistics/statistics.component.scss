@@ -25,13 +25,13 @@
     height: calc(90% - 10px);
     margin: 5px;
     display:grid;
-    justify-content: center;
     align-content: center;
 }
 
 .toggle-button{
     color: mat-color($primary);
     background-color: mat-color($secondary);
+    width: 100%;
 }
 
 .date-filter{
@@ -122,7 +122,7 @@
 .status{
     margin:10px;
     width: calc(100% - 20px);
-    height: calc(20% - 20px);
+    height: calc(25% - 20px);
 }
 
 .confirm{
@@ -130,9 +130,23 @@
     width: calc(100% - 20px);
     height: calc(60% - 20px);
     display: grid;
+    text-align: center;
 }
 
 .time-confirm{
-    margin: 5px;
+    margin: 10px;
 }
 
+.confirm-button{    
+    height: 100px;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 20px;
+}
+
+.toggle-button-confirm{
+    color: mat-color($primary);
+    background-color: mat-color($secondary);
+    width: 20%;
+}

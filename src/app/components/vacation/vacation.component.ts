@@ -59,7 +59,6 @@ export class VacationComponent {
   }
 
   save() {
-    console.log(this.activity)
     this.activityService.saveAktivityInTimeSpan(
       this.activity,
       this.global.employee.id,
