@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { BookingDay } from 'src/app/models/booking-day';
 import { ActivityService } from 'src/app/services/activity.service';
 import { BookingDayService } from 'src/app/services/booking-day.service';
@@ -11,7 +11,7 @@ import { Global } from 'src/global';
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.scss']
 })
-export class StatisticsComponent {
+export class StatisticsComponent implements DoCheck {
 
   dateIsDefault = true;
   isSelected:boolean = false;
@@ -54,6 +54,21 @@ export class StatisticsComponent {
     private datePipe: DatePipe
     ) {
     global.currentItem = 2;
+    }
+
+    ngDoCheck(): void {
+      this.sort();
+    }
+  
+    sort(){
+      if(this.bookingDays.length >=2){
+        this.bookingDays.sort(function(a,b){
+          var date1 = new Date(a.date).getTime();  
+          var date2 = new Date(b.date).getTime();  
+          return date1 > date2 ? 1 : -1;    
+        }
+        );
+      }
     }
    
    changeValue(){
