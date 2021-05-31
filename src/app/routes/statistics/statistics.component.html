@@ -4,7 +4,7 @@
             <ng-container *ngIf="dateIsDefault == true; then default; else custom"></ng-container>
             <ng-template #default>
                 <div class="toggle">
-                    <button mat-stroked-button class="toggle-button" (click)="changeValue()">Benutzerdefinierte Eingabe</button>
+                    <button mat-stroked-button class="toggle-button" (click)="changeValue()">Benutzerdefiniert</button>
                 </div>
                 <div class="date-filter default">
                     <div class="date-picker-container">
@@ -28,7 +28,7 @@
             </ng-template>
             <ng-template #custom>
                 <div class="toggle">
-                        <button mat-stroked-button class="toggle-button" (click)="changeValue()">Defaut eingabe</button>
+                        <button mat-stroked-button class="toggle-button" (click)="changeValue()">Voreinstellungen</button>
                 </div>
                 <div class="date-filter custom">
                     <div class="date-picker-container">

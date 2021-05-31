@@ -21,9 +21,8 @@
     margin: 5px;
 }
 
-
 .time-confirm{
-    margin: 5px;
+    margin: 2px;
     display: flex;
     height: calc(100% - 10px);
 }
@@ -43,7 +42,6 @@
     border-color: black;
     width: 100%;
     height: 100%;
-    margin:5px;
     text-align: center;
     align-content: center;
 }
@@ -64,17 +62,15 @@
 .proj{
     width: calc(20% - 20px);
     height: calc(100% - 20px);
-    margin: 10px;
 }
 
 .desc{
     width: calc(60% - 20px);
     height: calc(100% - 20px);
-    margin: 10px;
+    text-align: left;
 }
 
 .status{
     width: calc(20% - 20px);
     height: calc(100% - 20px);
-    margin: 10px;
 }
