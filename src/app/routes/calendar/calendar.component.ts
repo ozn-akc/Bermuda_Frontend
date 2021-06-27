@@ -26,6 +26,8 @@ export class CalendarComponent implements OnInit, DoCheck{
     global.currentItem = 1;
     this.from = this.getMonday();
     this.to = this.getSunday();
+    console.log(this.getMonday());
+    console.log(this.getSunday())
   }
 
   ngDoCheck(): void {
@@ -55,7 +57,7 @@ export class CalendarComponent implements OnInit, DoCheck{
   }
   
   getSunday() {
-    var d = new Date;
+    var d = this.getMonday();
     var day = d.getDay(),
         diff = d.getDate() - day + (day == 0 ? -6:5); // adjust when day is sunday
     return new Date(d.setDate(diff));

@@ -22,6 +22,7 @@ import { DatePipe } from '@angular/common';
 import { SickComponent } from './components/sick/sick.component';
 import { WorkTimeStatusComponent } from './components/work-time-status/work-time-status.component';
 import { WorkTimeConfirmComponent } from './components/work-time-confirm/work-time-confirm.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { WorkTimeConfirmComponent } from './components/work-time-confirm/work-ti
   ],
   providers: [
     Global,
-    DatePipe
+    DatePipe,
+    {provide: MAT_DATE_LOCALE, useValue: 'de-DE'},
   ],
   bootstrap: [AppComponent],
   entryComponents: [

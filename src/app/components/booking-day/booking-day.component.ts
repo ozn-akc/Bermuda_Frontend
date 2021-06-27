@@ -1,7 +1,6 @@
 import { AfterContentInit, Component, Input, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Data } from '@angular/router';
-import * as moment from 'moment';
 import { Activity } from 'src/app/models/activity';
 import { BookingDay } from 'src/app/models/booking-day';
 import { ActivityService } from 'src/app/services/activity.service';
@@ -95,3 +94,5 @@ export class BookingDayComponent implements AfterContentInit{
       this.maxHours -= this.bookingDay.breakHours;
     }
   }
+
+
